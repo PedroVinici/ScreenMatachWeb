@@ -1,7 +1,18 @@
 package br.com.alura.screematch.domain.movie;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Movie")
 public class Movie {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String title;
     private Integer duration;
     private Integer release;
@@ -41,5 +52,9 @@ public class Movie {
     @Override
     public String toString() {
         return "Movie [title=" + title + ", duration=" + duration + ", release=" + release + ", genre=" + genre + "]";
+    }
+
+    public long getId() {
+        return id;
     }
 }
